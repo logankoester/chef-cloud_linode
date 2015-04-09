@@ -1,6 +1,6 @@
 # Adapted from https://github.com/chef/ohai/blob/master/lib/ohai/plugins/linode.rb
-Ohai.plugin(:Linode) do
-  provides 'linode'
+Ohai.plugin(:CloudLinode) do
+  provides 'cloud_linode'
   depends 'kernel', 'network'
 
   # Checks for matching linode kernel name
@@ -26,9 +26,9 @@ Ohai.plugin(:Linode) do
   collect_data(:linux) do
     if looks_like_linode?
       interface = network[:default_interface]
-      linode Mash.new
-      linode[:private_ip] = get_ip_address(:private_ip, interface)
-      linode[:public_ip] = get_ip_address(:public_ip, interface)
+      cloud_linode Mash.new
+      cloud_linode[:private_ip] = get_ip_address(:private_ip, interface)
+      cloud_linode[:public_ip] = get_ip_address(:public_ip, interface)
     end
   end
 

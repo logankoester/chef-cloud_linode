@@ -1,6 +1,6 @@
 include_recipe 'ohai::default'
 
-ohai 'reload linode' do
-  plugin 'linode'
+ohai 'reload cloud_linode' do
+  plugin 'cloud_linode'
   action :reload
 end

@@ -1,4 +1,4 @@
-name 'linode'
+name 'cloud_linode'
 maintainer 'Logan Koester'
 maintainer_email 'logan@logankoester.com'
 license 'mit'
