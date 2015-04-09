@@ -16,3 +16,5 @@ node.set['cloud']['local_hostname'] = node['hostname']
 
 node.set['cloud_v2']['public_ipv4_addrs'] = [node['cloud_linode']['public_ip']]
 node.set['cloud_v2']['public_ipv4'] = node['cloud_linode']['public_ip']
+
+node.save
