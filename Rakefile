@@ -29,18 +29,6 @@ end
 desc 'Run all style checks'
 task style: ['style:chef', 'style:ruby']
 
-# Integration tests. Kitchen.ci
-namespace :integration do
-  begin
-    require 'kitchen/rake_tasks'
-
-    desc 'Run kitchen integration tests'
-    Kitchen::RakeTasks.new
-  rescue LoadError
-    puts '>>>>> Kitchen gem not loaded, omitting tasks' unless ENV['CI']
-  end
-end
-
 # Unit tests with rspec/chefspec
 namespace :unit do
   begin
@@ -63,5 +51,5 @@ desc 'Run all tests on Travis'
 task travis: %w(style unit)
 
 # Default
-task test: ['style', 'unit', 'integration:kitchen:all']
+task test: ['style', 'unit']
 task default: ['test']
